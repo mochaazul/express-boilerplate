@@ -3,22 +3,24 @@ import { User } from '@entity/user'
 import { scopeFormatter } from 'src/helper/scopeHelper'
 
 export const getAllUserService = async () => {
-  try {
-    const users = await User.find( { relations: ['role', 'role.scopes'] } )
-    const formattedUsers = users.map( user => {
-      const scopes = scopeFormatter( user.role.scopes )
-      return {
-        id     : user.id,
-        noInduk: user.noInduk,
-        name   : user.name,
-        role   : user.role.role,
-        scopes
-      }
-    } )
-    return formattedUsers
-  } catch ( e: any ) {
-    return new Error( e )
-  }
+  const users = await User.find( {
+    relations: [
+      'role',
+      'role.scopes',
+      'asd'
+    ]
+  } )
+  const formattedUsers = users.map( user => {
+    const scopes = scopeFormatter( user.role.scopes )
+    return {
+      id     : user.id,
+      noInduk: user.noInduk,
+      name   : user.name,
+      role   : user.role.role,
+      scopes
+    }
+  } )
+  return formattedUsers
 }
 
 export const createUserService = async ( { email, roles }: { email: string, roles: string[] } ) => {

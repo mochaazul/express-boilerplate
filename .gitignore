@@ -1,8 +1,4 @@
-node_modules/
-build/
-logs/
+log/
+node_modules
+tsoa
 .env
-db.sqlite
-
-src/app/.notes
-

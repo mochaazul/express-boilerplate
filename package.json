@@ -95,6 +95,7 @@
     "tsoa": "^3.5.2",
     "typeorm": "^0.2.31",
     "typeorm-extension": "^2.1.4",
-    "typeorm-seeding": "^1.6.1"
+    "typeorm-seeding": "^1.6.1",
+    "winston": "^3.10.0"
   }
 }

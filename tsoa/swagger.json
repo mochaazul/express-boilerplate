@@ -147,7 +147,7 @@
 				"parameters": []
 			}
 		},
-		"/api/user-permission/get-all": {
+		"/api/user": {
 			"get": {
 				"operationId": "GetAllUser",
 				"responses": {
@@ -161,19 +161,13 @@
 					}
 				},
 				"tags": [
-					"User Permission"
+					"User"
 				],
-				"security": [
-					{
-						"api_key": [
-							"read:user"
-						]
-					}
-				],
+				"security": [],
 				"parameters": []
 			}
 		},
-		"/api/user-permission/create": {
+		"/api/user/create": {
 			"post": {
 				"operationId": "CreateUser",
 				"responses": {
@@ -187,7 +181,7 @@
 					}
 				},
 				"tags": [
-					"User Permission"
+					"User"
 				],
 				"security": [
 					{
@@ -224,7 +218,7 @@
 				}
 			}
 		},
-		"/api/user-permission/update/{id}": {
+		"/api/user/update/{id}": {
 			"put": {
 				"operationId": "UpdateUser",
 				"responses": {
@@ -238,7 +232,7 @@
 					}
 				},
 				"tags": [
-					"User Permission"
+					"User"
 				],
 				"security": [
 					{
@@ -284,7 +278,7 @@
 				}
 			}
 		},
-		"/api/user-permission/delete/{id}": {
+		"/api/user/delete/{id}": {
 			"delete": {
 				"operationId": "DeleteUser",
 				"responses": {
@@ -298,7 +292,7 @@
 					}
 				},
 				"tags": [
-					"User Permission"
+					"User"
 				],
 				"security": [
 					{

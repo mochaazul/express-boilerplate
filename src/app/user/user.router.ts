@@ -4,15 +4,15 @@ import {
 import {
   getAllUserService, createUserService, updateUserService, deleteUserService
 } from './user.service'
+import { SuccessResponse } from 'src/common/dto/SuccessResponse.dto'
 
-@Tags( 'User Permission' )
-@Route( '/api/user-permission' )
-@Security( 'api_key' )
-export class UserPermissionController extends Controller {
-  @Get( '/get-all/' )
-  @Security( 'api_key', ['read:user'] )
+@Tags( 'User' )
+@Route( '/api/user' )
+export class User extends Controller {
+  @Get( '/' )
   public async getAllUser () {
-    return await getAllUserService()
+    const data = await getAllUserService()
+    return new SuccessResponse( data )
   }
 
   @Post( '/create/' )

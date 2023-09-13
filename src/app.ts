@@ -5,7 +5,7 @@ import cors from 'cors'
 import swaggerUi from 'swagger-ui-express'
 import { RegisterRoutes } from '../tsoa/routes'
 import Database from '@database'
-import { ValidateError } from 'tsoa'
+import ErrorHandler from './common/middleware/error'
 
 const app: Express = express()
 
@@ -55,17 +55,7 @@ app.use( '/docs', swaggerUi.serve, async ( req: express.Request, res: express.Re
  *                               Express Error Handling
  ***********************************************************************************/
 
-app.use( ( err: unknown, req: express.Request, res: express.Response, next: express.NextFunction ) => {
-  if ( err instanceof ValidateError ) {
-    // console.error( `Caught Validation Error for ${req.path}:`, err.fields )
-    const error = new Error()
-    return res.status( 422 ).send( error.message )
-  }
-  if ( err instanceof Error ) {
-    return res.status( 500 ).send( err.message )
-  }
-  next()
-} )
+app.use( ErrorHandler )
 
 app.emit( 'ready' )
 app.use( function notFoundHandler ( _req, res: express.Response ) {
